@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
- 
-" -------------------- Vundle ---------------------- 
+
+" -------------------- Vundle ----------------------
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -19,7 +19,7 @@ Plugin 'digitaltoad/vim-pug'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-" -------------------- Vundle End ---------------------- 
+" -------------------- Vundle End ----------------------
 
 " vim-airline {
     " Set configuration options for the statusline plugin vim-airline.
@@ -62,6 +62,12 @@ filetype plugin indent on    " required
   " This allows buffers to be hidden if you've modified a buffer.
   " This is almost a must if you wish to use buffers in this way.
   set hidden
+  set foldenable                " enable folding
+  set foldlevelstart=10         " open most folds by default
+  set foldnestmax=10            " 10 nested fold max
+  set foldmethod=indent         " fold based on indent level
+
+  autocmd BufWritePre * :%s/\s\+$//e
 " }
 
 " map-keys {
@@ -70,7 +76,7 @@ filetype plugin indent on    " required
   nmap <leader>w :w<cr>
   inoremap jk <esc>
 
-  " Navigate between Split  
+  " Navigate between Split
   map <C-j> <C-W>j
   map <C-k> <C-W>k
   map <C-h> <C-W>h
@@ -79,18 +85,21 @@ filetype plugin indent on    " required
   " To open a new empty buffer
   " This replaces :tabnew which I used to bind to this mapping
   nmap <leader>T :enew<cr>
-  
+
   " Move to the next buffer
   nmap <leader>l :bnext<CR>
-  
+
   " Move to the previous buffer
   nmap <leader>h :bprevious<CR>
-  
+
   " Close the current buffer and move to the previous one
   " This replicates the idea of closing a tab
   nmap <leader>bq :bp <BAR> bd #<CR>
-  
+
   " Show all open buffers and their status
   nmap <leader>bl :ls<CR>
+
+  " , open/close folds
+  nnoremap , za
 
 " }
