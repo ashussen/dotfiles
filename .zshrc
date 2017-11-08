@@ -94,5 +94,13 @@ alias ll="ls -lah";
 alias vim='/usr/local/bin/vim'
 alias gs='git status'
 alias gd='git diff'
+alias gds='git diff --staged'
+alias ga='git add'
+alias ssh-panthers='ssh dailypress@52.64.58.168'
+alias llf='du -hs'
 export PATH="/usr/local/sbin:$PATH"
 export PATH=/usr/local/share/npm/bin:$PATH
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+export PATH="$HOME/.yarn/bin:$PATH"

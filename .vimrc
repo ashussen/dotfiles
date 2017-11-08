@@ -13,9 +13,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'posva/vim-vue'
-Plugin 'nelsyeung/twig.vim'
-Plugin 'zacanger/angr.vim'
-Plugin 'digitaltoad/vim-pug'
+Plugin 'othree/html5.vim'  "html5 highlighting
+Plugin 'zacanger/angr.vim' "dark colorscheme
+Plugin 'rakr/vim-one' "light colorscheme
+Plugin 'pangloss/vim-javascript' "react jsx syntax highlighting
+Plugin 'mxw/vim-jsx' "react jsx syntax highlighting
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -46,11 +48,12 @@ filetype plugin indent on    " required
 
 " vim-setting {
   syntax on
+  colorscheme angr
+  set background=dark
   set laststatus=2
   set ttimeoutlen=50
   set cursorline
   set number
-  colorscheme angr
   set expandtab
   set shiftwidth=2
   set softtabstop=2
@@ -68,6 +71,8 @@ filetype plugin indent on    " required
   set foldmethod=indent         " fold based on indent level
 
   autocmd BufWritePre * :%s/\s\+$//e
+
+  let g:jsx_ext_required = 0 "allow jsx in .js file
 " }
 
 " map-keys {
